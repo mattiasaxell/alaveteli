@@ -2,6 +2,7 @@
 
 ## Highlighted Features
 
+* Add support for Ruby 3.3 (Graeme Porteous)
 * Allow categories to have notes associated with them (Graeme Porteous)
 * Add styling option and rich text editor to the notes admin (Graeme Porteous)
 * Strengthen 2FA warning. Users *must* remember to keep this code safe (Gareth
