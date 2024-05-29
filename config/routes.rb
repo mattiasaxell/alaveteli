@@ -532,7 +532,15 @@ Rails.application.routes.draw do
   end
   ####
 
+  #### Admin::Debug controller
+  namespace :admin do
+    # FIXME: For some reason the resources call is generating the route as
+    # admin_debug_index_path rather than the standard admin_debug_path.
+    # resources :debug, only: [:index]
+    get 'debug', to: 'debug#index', as: :debug
+  end
   ####
+
   #### AdminTag controller
   namespace :admin do
     resources :tags, param: :tag, only: [:index, :show],
@@ -622,9 +630,6 @@ Rails.application.routes.draw do
         :via => :get
   match '/admin/timeline' => 'admin_general#timeline',
         :as => :admin_timeline,
-        :via => :get
-  match '/admin/debug' => 'admin_general#debug',
-        :as => :admin_debug,
         :via => :get
   match '/admin/stats' => 'admin_general#stats',
         :as => :admin_stats,
