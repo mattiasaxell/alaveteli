@@ -182,6 +182,8 @@ GEM
       rake (>= 12.0.0, < 14.0.0)
     docile (1.4.0)
     erubi (1.13.0)
+    ethon (0.16.0)
+      ffi (>= 1.15.0)
     exception_notification (4.5.0)
       actionmailer (>= 5.2, < 8)
       activesupport (>= 5.2, < 8)
@@ -199,8 +201,16 @@ GEM
       logger
     faraday-net_http (3.3.0)
       net-http
+    faraday-typhoeus (1.1.0)
+      faraday (~> 2.0)
+      typhoeus (~> 1.4)
     fast_gettext (3.1.0)
       prime
+    ffi (1.17.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     fivemat (1.3.7)
     flipper (0.28.3)
       concurrent-ruby (< 2)
@@ -358,6 +368,10 @@ GEM
     oink (0.10.1)
       activerecord
       hodel_3000_compliant_logger
+    ollama-ai (1.3.0)
+      faraday (~> 2.10)
+      faraday-typhoeus (~> 1.1)
+      typhoeus (~> 1.4, >= 1.4.1)
     open4 (1.3.4)
     os (1.1.4)
     ostruct (0.6.0)
@@ -534,6 +548,8 @@ GEM
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    typhoeus (1.4.1)
+      ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
@@ -628,6 +644,7 @@ DEPENDENCIES
   net-ssh-gateway (>= 1.1.0, < 3.0.0)
   nokogiri (~> 1.16.7)
   oink (~> 0.10.1)
+  ollama-ai (~> 1.3.0)
   open4 (~> 1.3.0)
   pg (~> 1.5.9)
   pry (~> 0.15.0)
