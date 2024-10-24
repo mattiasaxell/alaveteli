@@ -1,0 +1,35 @@
+<div class="row">
+  <% if insights.any? %>
+    <table class="table table-condensed table-hover span12">
+      <tr>
+        <th>ID</th>
+        <% (Insight.content_columns.map(&:name) - ['output']).each do |column| %>
+          <th><%= column.humanize %></th>
+        <% end %>
+        <th>Actions</th>
+      </tr>
+
+      <% insights.each do |insight| %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td class="id"><%= insight.to_param %></td>
+
+          <% (Insight.content_columns.map(&:name) - ['output']).each do |column| %>
+            <td class="<%= column %>"><%=h insight.send(column) %></td>
+          <% end %>
+
+          <td>
+            <%= link_to "Show", admin_info_request_insight_path(info_request, insight), class: 'btn' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p class="span12">None yet.</p>
+  <% end %>
+</div>
+
+<div class="row">
+  <p class="span12">
+    <%= link_to "New insight", new_admin_info_request_insight_path(info_request), :class => "btn btn-info" %>
+  </p>
+</div>
