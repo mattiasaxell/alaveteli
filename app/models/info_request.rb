@@ -133,6 +133,8 @@ class InfoRequest < ApplicationRecord
            -> { extraction },
            class_name: 'Project::Submission'
 
+  has_many :insights, dependent: :destroy
+
   attr_reader :followup_bad_reason
 
   scope :internal, -> { where.not(user_id: nil) }
