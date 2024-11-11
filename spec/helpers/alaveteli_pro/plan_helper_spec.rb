@@ -33,6 +33,12 @@ describe AlaveteliPro::PlanHelper do
       allow(plan).to receive(:interval_count).and_return(1)
       expect(helper.billing_frequency(plan)).to eq('Billed: every quarter')
     end
+
+    it 'returns custom message for intervals with count greater then 1' do
+      allow(plan).to receive(:interval).and_return('week')
+      allow(plan).to receive(:interval_count).and_return(2)
+      expect(helper.billing_frequency(plan)).to eq('Billed: every 2 weeks')
+    end
   end
 
   describe '#billing_interval' do

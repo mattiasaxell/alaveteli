@@ -13,13 +13,13 @@ module AlaveteliPro::PlanHelper
     elsif interval(plan) == 'year' && interval_count(plan) == 1
       _('Billed: Annually')
     else
-      _('Billed: every {{interval}}', interval: interval(plan))
+      _('Billed: every {{interval}}', interval: pluralize_interval(plan))
     end
   end
 
   def billing_interval(plan)
     if interval_count(plan) == 1
-      _('per user, per {{interval}}', interval: pluralize_interval(plan))
+      _('per user, per {{interval}}', interval: interval(plan))
     else
       _('per user, every {{interval}}', interval: pluralize_interval(plan))
     end
