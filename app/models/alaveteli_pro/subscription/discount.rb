@@ -24,7 +24,7 @@ module AlaveteliPro::Subscription::Discount
   end
 
   def discounted?
-    discounted_amount < plan.amount
+    reduction > 0
   end
 
   def discount_name
