@@ -12,7 +12,7 @@ RSpec.describe 'alaveteli_pro/plans/index' do
 
   let(:stripe_price) do
     stripe_helper.create_price(
-      id: 'pro', product: product.id, unit_amount: cents_price
+      id: 'price_123', product: product.id, unit_amount: cents_price
     )
   end
 

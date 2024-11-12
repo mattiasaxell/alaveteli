@@ -752,7 +752,6 @@ RSpec.describe AlaveteliPro::SubscriptionsController, feature: :pro_pricing do
       let(:user) { FactoryBot.create(:pro_user) }
 
       let!(:customer) do
-        price = stripe_helper.create_price(id: 'test', product: product.id)
         customer = Stripe::Customer.create(
           email: user.email,
           source: stripe_helper.generate_card_token
@@ -821,8 +820,6 @@ RSpec.describe AlaveteliPro::SubscriptionsController, feature: :pro_pricing do
 
     context 'with a signed-in user' do
       let(:user) { FactoryBot.create(:pro_user) }
-
-      let(:price) { stripe_helper.create_price(id: 'test', product: product.id) }
 
       let(:customer) do
         customer = Stripe::Customer.create({

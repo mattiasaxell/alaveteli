@@ -7,9 +7,8 @@ class AlaveteliPro::Price < SimpleDelegator
   tax :unit_amount
 
   def self.list
-    AlaveteliConfiguration.stripe_prices.inject([]) do |arr, (_key, id)|
-      arr << retrieve(id)
-      arr
+    AlaveteliConfiguration.stripe_prices.map do |(_key, id)|
+      retrieve(id)
     end
   end
 
@@ -21,7 +20,7 @@ class AlaveteliPro::Price < SimpleDelegator
   end
 
   def to_param
-    AlaveteliConfiguration.stripe_prices[id]
+    AlaveteliConfiguration.stripe_prices[id] || id
   end
 
   # product
