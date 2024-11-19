@@ -5,7 +5,7 @@
     <% blog_posts_for_frontpage.each do |post| %>
       <div class="blog__post">
         <h3><%= link_to post.title, post.url %></h3>
-        <p><%= post.description %></p>
+        <p><%= raw post.description %></p>
       </div>
     <% end %>
 
